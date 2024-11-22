@@ -1,0 +1,104 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load lambda_core_tags %}
+
+{% block head_title %}
+    {% trans "Account" %}
+{% endblock head_title %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        {#(function () {#}
+        {#    var message = "{% trans 'Do you really want to remove the selected e-mail address?' %}";#}
+        {#    var actions = document.getElementsByName('action_remove');#}
+        {#    if (actions.length) {#}
+        {#        actions[0].addEventListener("click", function (e) {#}
+        {#            if (!confirm(message)) {#}
+        {#                e.preventDefault();#}
+        {#            }#}
+        {#        });#}
+        {#    }#}
+        {# })();#}
+    </script>
+{% endblock scripts %}
+
+{% block page_content %}
+    {% include 'lambda_theme/tailwindcss/account/snippets/go_back.html' %}
+    <h2 class="font-bold text-xl">{% trans "E-mail Addresses" %}</h2>
+    {% if user.emailaddress_set.all %}
+        <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
+        <form action="{% url 'account_email' %}" method="post" class="flex flex-col">
+            {% csrf_token %}
+            {% for emailaddress in user.emailaddress_set.all %}
+                <div class="w-full">
+                    <label for="email_radio_{{ forloop.counter }}">
+                        <div class="flex justify-between">
+                            <div>
+                                <input class="mr-2 leading-tight" id="email_radio_{{ forloop.counter }}" type="radio"
+                                       name="email" value="{{ emailaddress.email }}"
+                                        {% if emailaddress.primary or user.emailaddress_set.count == 1 %}
+                                       checked="checked"
+                                        {% endif %}/>
+                                {{ emailaddress.email }}
+                            </div>
+                            <div>
+                                {% if emailaddress.verified %}
+                                    {% label color="success" %}
+                                        {% trans "Verified" %}
+                                    {% endlabel %}
+                                {% else %}
+                                    {% label color="warning" %}
+                                        {% trans "Unverified" %}
+                                    {% endlabel %}
+                                {% endif %}
+                                {% if emailaddress.primary %}
+                                    {% label color="primary" %}
+                                        {% trans "Primary" %}
+                                    {% endlabel %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            {% endfor %}
+            <div class="mt-6 flex space-x-2">
+                {% if perms.account.change_emailaddress %}
+                    {% button name="action_primary" type="submit" %}
+                        {% trans 'Make Primary' %}
+                    {% endbutton %}
+                {% endif %}
+                {% button name="action_send" type="submit" %}
+                    {% trans 'Re-send Verification' %}
+                {% endbutton %}
+                {% if perms.account.delete_emailaddress %}
+                    {% button color="error" name="action_remove" type="submit" %}
+                        {% trans 'Remove' %}
+                    {% endbutton %}
+                {% endif %}
+            </div>
+        </form>
+    {% else %}
+        <p>
+            <strong>{% trans 'Warning:' %}</strong>
+            {% blocktrans trimmed %}
+                You currently do not have any e-mail address set up. You should really add an e-mail
+                address so you can receive notifications, reset your password, etc.
+            {% endblocktrans %}
+        </p>
+    {% endif %}
+    {% if perms.account.add_emailaddress %}
+        <div class="pt-4">
+            <h2 class="font-bold text-xl">{% trans "Add E-mail Address" %}</h2>
+            <form method="post" action="{% url 'account_email' %}" class="mt-4">
+                {% csrf_token %}
+                {% form_fields form %}
+                <div class="mt-4 bg-gray-200">
+                    {% button color="primary" name="action_add" type="submit" %}
+                        {% trans "Submit" %}
+                    {% endbutton %}
+                </div>
+            </form>
+        </div>
+    {% endif %}
+{% endblock page_content %}

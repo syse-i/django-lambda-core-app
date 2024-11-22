@@ -1,0 +1,20 @@
+server:
+  connection:
+    user: '{{ user }}'
+    host: '{{ host }}'
+    connect_kwargs:
+      key_filename: "{{ key_filename }}"
+  packages:
+    - 'libpq-dev'
+    - 'build-essential'
+    - 'libssl-dev'
+    - 'openssl'
+    - 'swig'
+application:
+  name: '{{ app_name }}'
+  repository: '{{ repository_url }}'
+  django:
+    run:
+      - 'check'
+      - 'migrate'
+      - 'createinitialrevisions'

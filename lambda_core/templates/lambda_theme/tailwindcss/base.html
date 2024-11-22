@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock head %}
+    <title>{% block head_title %}{% endblock head_title %}</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'lambda_core/css/tailwind.app.css' %}">
+    {% block styles %}{% endblock styles %}
+</head>
+<body {% block body_class %}{% endblock body_class %}>
+{% block content %}{% endblock content %}
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+{% block scripts %}{% endblock scripts %}
+</body>
+</html>

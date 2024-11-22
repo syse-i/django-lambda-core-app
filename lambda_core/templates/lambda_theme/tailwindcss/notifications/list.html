@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+{% load lambda_core_tags %}
+
+{% block page_title %}
+    <h3 class="inline-flex items-center">{% trans 'Notifications'|upper %}</h3>
+{% endblock %}
+
+{% block page_content %}
+    {% if notifications %}
+        {% url 'notifications:mark_all_as_read' as mark_all_url %}
+        <div>
+            {% link href=mark_all_url class="inline-flex items-center" %}
+                <img src="{% static 'lambda_core/svg/heroicons/outline/check-circle.svg' %}" class="w-5 h-5 mr-1">
+                {% trans 'Mark all as read' %}
+            {% endlink %}
+        </div>
+        <div class="mt-2 flex flex-col space-y-4">
+            {% for notice in notifications %}
+                {% include 'notifications/notice.html' %}
+            {% endfor %}
+        </div>
+    {% else %}
+        {% no_content %}
+    {% endif %}
+{% endblock %}

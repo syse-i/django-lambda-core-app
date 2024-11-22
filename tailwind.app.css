@@ -1,0 +1,11 @@
+/* ./tailwind.app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+    content: '/';
+    display: inline-block;
+    margin: 0 10px;
+    color: #999;
+}

@@ -1,0 +1,43 @@
+{% extends 'datatable/base.html' %}
+{% load i18n %}
+{% load hijack_tags %}
+{% load lambda_core_tags %}
+
+{% block page_title %}
+    {% trans 'Users'|upper %}
+{% endblock %}
+
+{% block table_content %}
+    <table class="table-auto w-full">
+        <thead>
+        <tr>
+            <th class="border px-4 py-2">{% trans 'Username' %}</th>
+            <th class="border px-4 py-2">{% trans 'First Name' %}</th>
+            <th class="border px-4 py-2">{% trans 'Last Name' %}</th>
+            <th class="border px-4 py-2">{% trans 'Email' %}</th>
+            <th class="border px-4 py-2">{% trans 'Actions' %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in object_list %}
+            <tr>
+                <td class="border px-4 py-2">{{ user.username }}</td>
+                <td class="border px-4 py-2">{{ user.first_name }}</td>
+                <td class="border px-4 py-2">{{ user.last_name }}</td>
+                <td class="border px-4 py-2">{{ user.email }}</td>
+                <td class="border px-4 py-2 text-center">
+                    {% if request.user|can_hijack:user %}
+                        <form action="{% url 'hijack:login_with_id' user.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.GET.next }}">
+                            {% button color="link" type="submit" %}
+                                {% trans 'Login' %}
+                            {% endbutton %}
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

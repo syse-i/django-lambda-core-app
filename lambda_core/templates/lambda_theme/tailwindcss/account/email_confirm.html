@@ -1,0 +1,42 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load account %}
+{% load static %}
+{% load lambda_core_tags %}
+
+{% block head_title %}
+    {% trans "Confirm E-mail Address" %}
+{% endblock head_title %}
+
+{% block side_image %}
+    <img src="{% static "lambda_core/svg/undraw/undraw_Confirmation_re_b6q5.svg" %}" style="width: 32rem;">
+{% endblock %}
+
+{% block page_content %}
+    <div class="text-center">
+        {% if confirmation %}
+            <h2 class="font-bold text-xl">{% trans "Confirm E-mail Address" %}</h2>
+            {% user_display confirmation.email_address.user as user_display %}
+            <p class="mt-4">
+                {% blocktrans trimmed with confirmation.email_address.email as email %}
+                    Please confirm that <a class="text-blue-500 hover:text-blue-700" href="mailto:{{ email }}">{{ email }}</a>
+                    is an e-mail address for user: <b>{{ user_display }}</b>.
+                {% endblocktrans %}
+            </p>
+            <form class="mt-4" method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                {% csrf_token %}
+                {% button class="px-8 py-4" color="primary" type="submit" %}
+                    {% trans 'Confirm' %}
+                {% endbutton %}
+            </form>
+        {% else %}
+            {% url 'account_email' as email_url %}
+            <p>
+                {% blocktrans trimmed %}
+                    This e-mail confirmation link expired or is invalid. Please
+                    <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.
+                {% endblocktrans %}
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}

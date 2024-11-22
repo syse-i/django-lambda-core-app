@@ -1,0 +1,17 @@
+include LICENSE
+include README.md
+recursive-include lambda_core/cohort *
+recursive-include lambda_core/db *
+recursive-include lambda_core/docs *
+recursive-include lambda_core/forms *
+recursive-include lambda_core/locale *
+recursive-include lambda_core/management *
+recursive-include lambda_core/migrations *
+recursive-include lambda_core/settings *
+recursive-include lambda_core/static *
+recursive-include lambda_core/templates *
+recursive-include lambda_core/templatetags *
+recursive-include lambda_core/tests *
+recursive-include lambda_core/user_profile *
+global-exclude __pycache__
+global-exclude *.py[co]

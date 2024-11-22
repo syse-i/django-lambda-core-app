@@ -1,0 +1,21 @@
+{% extends "account/email/base_message.html" %}
+{% load account %}
+{% load i18n %}
+
+{% block page_content %}
+    {% autoescape off %}
+        {% user_display user as user_display %}
+        <p>
+            {% blocktrans trimmed with site_name=current_site.name site_domain=current_site.domain %}
+                You're receiving this e-mail because user <b>{{ user_display }}</b> has given
+                your e-mail address to register an account on {{ site_domain }}.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% trans 'To confirm this is correct,' %}
+            <a class="text-blue-700 hover:text-blue-800" href="{{ activate_url }}">
+                {% trans 'open this link.' %}
+            </a>
+        </p>
+    {% endautoescape %}
+{% endblock %}

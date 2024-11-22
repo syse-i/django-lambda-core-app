@@ -1,0 +1,42 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[[source]]
+name = "sysei"
+url = "https://$PYPY_USERNAME:${PYPY_PASSWORD}@pypi.syse-i.net/simple"
+verify_ssl = true
+
+[packages]
+django = "*"
+django-extensions = "*"
+django-maintenance-mode = "*"
+django-allauth = "*"
+django-sendgrid-v5 = "*"
+django-storages = "*"
+django-guardian = "*"
+django-notifications-hq = "*"
+djangorestframework = "*"
+pillow = "*"
+ipython = "*"
+psycopg2-binary = "*"
+boto3 = "*"
+django-lambda-theme = {version = "*",index = "sysei"}
+django-lambda-theme-tailwindcss = {version = "*",index = "sysei"}
+django-lambda-config = {version = "*",index = "sysei"}
+django-lambda-url = {version = "*",index = "sysei"}
+django-reversion = "*"
+markdown = "*"
+sentry-sdk = "*"
+pyyaml = "*"
+fabric = "*"
+gunicorn = "*"
+django-hijack = "*"
+django-rest-knox = "*"
+django-cors-headers = "*"
+django-filter = "*"
+django-debug-toolbar = "*"
+
+[requires]
+python_version = "3.8"

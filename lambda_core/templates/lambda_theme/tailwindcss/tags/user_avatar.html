@@ -1,0 +1,7 @@
+{% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}"
+         width="{{ width }}" height="{{ height }}" {{ attributes }}>
+{% else %}
+    <svg data-jdenticon-value="{{ user.username }}"
+         width="{{ width }}" height="{{ height }}" {{ attributes }}></svg>
+{% endif %}

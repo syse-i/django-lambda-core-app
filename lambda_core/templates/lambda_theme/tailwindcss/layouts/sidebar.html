@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load lambda_core_tags %}
+
+{% block scripts %}
+    {{ block.super }}
+    <!--suppress HtmlUnknownAttribute -->
+    <script>
+        function layout() {
+            return {
+                isSideMenuOpen: false,
+                toggleSideMenu() {
+                    this.isSideMenuOpen = !this.isSideMenuOpen
+                },
+                closeSideMenu() {
+                    this.isSideMenuOpen = false
+                }
+            }
+        }
+
+    </script>
+{% endblock scripts %}
+
+{% block content %}
+    <div x-data="layout()">
+        <div :class="{'overflow-hidden': isSideMenuOpen}" class="flex h-screen bg-gray-50">
+            <!-- Desktop sidebar -->
+            <aside class="z-20 hidden w-64 overflow-y-auto bg-gray-900 md:block flex-shrink-0">
+                <div class="px-4 py-4 text-gray-200">
+                    {% block navigation %}{% endblock navigation %}
+                </div>
+            </aside>
+            <!-- Mobile sidebar -->
+            <!-- Backdrop -->
+            <div x-show="isSideMenuOpen"
+                 x-transition:enter="transition ease-in-out duration-150"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in-out duration-150"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
+                 class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center">
+            </div>
+            <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 overflow-y-auto bg-gray-900 md:hidden"
+                   x-show="isSideMenuOpen"
+                   x-transition:enter="transition ease-in-out duration-150"
+                   x-transition:enter-start="opacity-0 transform -translate-x-20"
+                   x-transition:enter-end="opacity-100"
+                   x-transition:leave="transition ease-in-out duration-150"
+                   x-transition:leave-start="opacity-100"
+                   x-transition:leave-end="opacity-0 transform -translate-x-20"
+                   @click.away="closeSideMenu"
+                   @keydown.escape="closeSideMenu"
+                   style="margin-top: 0.09017278617710583em;">
+                <div class="px-4 py-4 text-white">
+                    {% block mobile_navigation %}{% endblock mobile_navigation %}
+                </div>
+            </aside>
+            <div class="flex flex-col flex-1 pb-8">
+                {% messages %}
+                <header class="z-10 py-4 bg-white border border-l-0">
+                    <div class="flex items-center justify-between h-full px-6 mx-auto">
+                        <!-- Mobile hamburger -->
+                        <div class="inline-flex items-center">
+                            <button class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none"
+                                    @click="toggleSideMenu" aria-label="Menu">
+                                <img src="{% static 'lambda_core/svg/heroicons/solid/menu.svg' %}" class="w-5 stroke-1">
+                            </button>
+                            <div>{% block page_title %}{% endblock page_title %}</div>
+                        </div>
+                        <div class="flex justify-end flex-shrink-0 space-x-6">
+                            {% block header_navigation %}{% endblock header_navigation %}
+                        </div>
+                    </div>
+                </header>
+                {% block page_layout %}
+                    <main class="h-full overflow-y-auto">
+                        {% block page_subnav %}{% endblock page_subnav %}
+                        {% block page_content %}{% endblock page_content %}
+                    </main>
+                {% endblock page_layout %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

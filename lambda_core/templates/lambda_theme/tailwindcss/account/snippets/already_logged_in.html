@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load account %}
+{% load lambda_core_tags %}
+
+{% user_display user as user_display %}
+
+<div class="mt-4">
+    {% alert color="warning" show_close=False %}
+        <strong>{% trans "Note" %}:</strong>
+        {% blocktrans trimmed %}
+            you are already logged in as {{ user_display }}.
+        {% endblocktrans %}
+    {% endalert %}
+</div>

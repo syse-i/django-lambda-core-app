@@ -1,0 +1,44 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load lambda_core_tags %}
+
+{% block head_title %}
+    {% trans "Login" %}
+{% endblock head_title %}
+
+{% block page_form %}
+    <h2>{% trans 'Hey there! Welcome back' %}</h2>
+    <p>{% trans 'Enter your sign in credentials bellow' %}</p>
+    <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <fieldset>
+            {% form_fields form %}
+            <div class="mt-4 bg-gray-200">
+                {% button color="primary" type="submit" %}
+                    {% trans "Log in" %}
+                {% endbutton %}
+            </div>
+        </fieldset>
+    </form>
+    <div class="mt-4 flex justify-between">
+        {% settings 'ACCOUNT_SIGNUP_ENABLE' as signup_enable %}
+        {% if signup_enable %}
+            <div>
+                {% url 'account_signup' as signup_url %}
+                {% link class="text-blue-500 hover:text-blue-700" color="primary" href=signup_url %}
+                    {% trans "Signup" %}
+                {% endlink %}
+            </div>
+        {% endif %}
+        <div>
+            {% url 'account_reset_password' as reset_password_url %}
+            {% link class="text-blue-500 hover:text-blue-700" href=reset_password_url %}
+                {% trans "Forgot Password?" %}
+            {% endlink %}
+        </div>
+    </div>
+{% endblock page_form %}

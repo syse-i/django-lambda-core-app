@@ -1,0 +1,6 @@
+{% extends 'lambda_theme/tailwindcss/tags/dropdown.html' %}
+{% load static %}
+
+{% block dropdown_title %}
+    {{ slot_title }}{{ title|default_if_none:'' }}
+{% endblock %}

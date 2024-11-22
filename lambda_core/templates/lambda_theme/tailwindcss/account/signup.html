@@ -1,0 +1,35 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load lambda_core_tags %}
+
+{% block head_title %}
+    {% trans "Signup" %}
+{% endblock head_title %}
+
+{% block page_form %}
+    {% include 'lambda_theme/tailwindcss/account/snippets/go_back.html' %}
+    {% url 'account_login' as login_url %}
+    <p>
+        {% trans 'Already have an account?' %}
+        {% trans 'Then please' %}
+        {% link class="text-blue-500 hover:text-blue-700" color="primary" href=login_url %}
+            {% trans 'log in' %}
+        {% endlink %}
+    </p>
+    <div class="mt-4">
+        <form method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            {% form_fields form %}
+            <div class="mt-4 bg-gray-200">
+                {% button color="primary" type="submit" %}
+                    {% trans "Sign Up" %}
+                {% endbutton %}
+            </div>
+        </form>
+    </div>
+{% endblock page_form %}
+
+

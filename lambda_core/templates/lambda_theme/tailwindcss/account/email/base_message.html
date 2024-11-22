@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load static %}
+{% load lambda_core_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+    {% static 'lambda_core/css/tailwind.app.css' as tailwind_css %}
+    <link rel="stylesheet" href="{% absolute_url tailwind_css %}">
+    {% block styles %}{% endblock styles %}
+</head>
+<body>
+{% block content %}
+    {% autoescape off %}
+        <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+                <div class="absolute inset-0 bg-blue-700 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+                <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+                    <div class="max-w-md mx-auto">
+                        <div>{% logo %}</div>
+                        <div class="divide-y divide-gray-200">
+                            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                                <p>{% trans 'Hello from' %} {{ current_site.name }}!</p>
+                                {% block page_content %}{% endblock page_content %}
+                            </div>
+                            <div class="pt-6 text-base leading-6 sm:text-lg sm:leading-7">
+                                <p>
+                                    {% trans 'Thank you for using' %}
+                                    {% link color="primary" href=current_site.domain %}
+                                        {{ current_site.name }}
+                                    {% endlink %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endautoescape %}
+{% endblock %}
+</body>
+</html>
+

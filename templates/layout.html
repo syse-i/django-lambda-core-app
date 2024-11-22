@@ -1,0 +1,49 @@
+{% extends 'lambda_theme/tailwindcss/layouts/sidebar.html' %}
+{% load i18n %}
+{% load static %}
+{% load hijack_tags %}
+{% load notifications_tags %}
+{% load lambda_core_tags %}
+
+{% block header_navigation %}
+    {% notifications_unread as unread_count %}
+    <div class="flex items-center space-x-4">
+        <div>
+            {% url 'notifications:unread' as unread_url %}
+            {% link href=unread_url class="inline-flex items-center" %}
+                <img src="{% static 'lambda_core/svg/heroicons/outline/bell.svg' %}" alt=""
+                     class="w-6 h-6">
+                {% if unread_count %}
+                    <span class="ml-1">{{ unread_count }}</span>
+                {% endif %}
+            {% endlink %}
+        </div>
+        {% dropdown position="right" %}
+            {% slot 'title' %}{% user_profile %}{% endslot %}
+            {% if request|is_hijacked %}
+                <div>
+                    <form action="{% url 'hijack:release_hijack' %}" method="POST"
+                          class="block px-4 py-3 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                        {% csrf_token %}
+                        <button class="w-full text-left" type="submit">{% trans 'Release user' %}</button>
+                    </form>
+                </div>
+            {% endif %}
+            {% dropdown_item_divider %}
+            {% url 'profile' as profile_url %}
+            {% dropdown_item title=_('Profile') href=profile_url %}
+            {% url 'account_email' as account_email %}
+            {% dropdown_item title=_('Emails') href=account_email|add:'?next='|add:request.get_full_path %}
+            {% if request.user.is_superuser or request.user.is_staff %}
+                {% url 'login_as' as login_url %}
+                {% url 'admin:index' as admin_url %}
+                {% dropdown_item_divider %}
+                {% dropdown_item title=_('Login as') href=login_url %}
+                {% dropdown_item title=_("Admin panel") href=admin_url %}
+            {% endif %}
+            {% dropdown_item_divider %}
+            {% url 'account_logout' as logout_url %}
+            {% dropdown_item title=_('Sign Out') href=logout_url %}
+        {% enddropdown %}
+    </div>
+{% endblock header_navigation %}

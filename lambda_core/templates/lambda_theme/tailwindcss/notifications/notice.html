@@ -1,0 +1,46 @@
+{% load static %}
+{% load i18n %}
+{% load lambda_core_tags %}
+
+<div class="rounded overflow-hidden border my-1 px-4 py-4">
+    <div class="flex items-start space-x-4">
+        <div class="col-span-1">
+            <img src="{% static 'lambda_core/svg/heroicons/solid/information-circle.svg' %}"
+                 class="w-8 h-8 svg-blue-500">
+        </div>
+        <div class="col-span-3">
+            <h3 class="text-lg font-bold">{{ notice.verb }}</h3>
+            <p class="text-sm">
+                {% blocktrans trimmed with timesince=notice.timesince %}
+                    {{ timesince }} ago
+                {% endblocktrans %}
+            </p>
+
+            <div class="my-3">
+                {% if notice.description %}
+                    <p class="text-md">
+                        {{ notice.description|safe|linebreaksbr }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <div class="flex items-center space-x-4 mt-3">
+                {% for action in notice.data.actions %}
+                    <div>
+                        {% link href=action.href class="text-blue-500 hover:text-blue-700" %}
+                            {{ action.title }}
+                        {% endlink %}
+                    </div>
+                    {% if notice.unread %}
+                        {% url 'notifications:mark_as_read' notice.slug as mark_as_read_url %}
+                        {% link href=mark_as_read_url class="text-blue-500 hover:text-blue-700 inline-flex items-center" %}
+                            <img src="{% static 'lambda_core/svg/heroicons/outline/check-circle.svg' %}"
+                                 class="w-5 h-5 mr-1 svg-blue-500">
+                            {% trans 'Mark as read' %}
+                        {% endlink %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

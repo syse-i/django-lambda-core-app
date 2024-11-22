@@ -1,0 +1,15 @@
+{% load lambda_theme_tags %}
+{% load i18n %}
+
+<form method="{{ method }}" {{ attributes }}>
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {% form_fields form %}
+    {% endfor %}
+    <div class="mt-4 bg-gray-200">
+        {% button color="primary" type="submit" with label=submit_label %}
+            {{ label }}
+        {% endbutton %}
+    </div>
+</form>

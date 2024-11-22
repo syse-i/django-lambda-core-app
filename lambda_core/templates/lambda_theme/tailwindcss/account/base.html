@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load lambda_core_tags %}
+
+{% block content %}
+    <div class="bg-white">
+        <div class="w-full flex flex-wrap">
+            <!-- Login Section -->
+            <div class="w-full md:w-1/2 flex flex-col">
+                {% block page_logo %}
+                    <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+                        {% logo %}
+                    </div>
+                {% endblock %}
+                <div class="flex flex-col space-y-4 justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+                    {% if messages %}
+                        <div>{% messages %}</div>
+                    {% endif %}
+                    {% block page_content %}
+                        {% block page_form %}{% endblock %}
+                    {% endblock %}
+                    {% block sso_content %}{% endblock %}
+                </div>
+            </div>
+            <!-- Image Section -->
+            <div id="right-side" class="md:w-1/2 shadow-xl bg-blue-500">
+                <div class="flex items-center justify-center h-screen">
+                    {% block side_image %}
+                        <img src="{% static "lambda_core/svg/undraw/undraw_Access_account_re_8spm.svg" %}" class="w-96">
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load lambda_core_tags %}
+
+{% block page_title %}
+    {% trans 'Update Profile'|upper %}
+{% endblock page_title %}
+
+{% block page_content %}
+    <div class="items-center grid grid-cols-3 gap-4 p-8">
+        <div class="col-span-1 flex items-center justify-center">
+            <div>
+                {% user_avatar width=150 height=150 %}
+                <p>{% trans 'Avatar' %}</p>
+            </div>
+        </div>
+        <div class="col-span-2">
+            {% form_render form enctype="multipart/form-data" %}
+        </div>
+    </div>
+{% endblock page_content %}

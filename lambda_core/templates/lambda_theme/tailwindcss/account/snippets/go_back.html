@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load static %}
+{% load lambda_core_tags %}
+
+<div class="my-4">
+    {% url 'account_login' as login_url %}
+    {% link href=login_url %}
+        <div class="flex flex-row items-center">
+            <div class="mr-1"><img src="{% static 'lambda_core/svg/feather/arrow-left.svg' %}" width="20px"></div>
+            <div>{% trans 'Go back' %}</div>
+        </div>
+    {% endlink %}
+</div>

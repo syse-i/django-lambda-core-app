@@ -1,0 +1,41 @@
+{% load lambda_core_tags %}
+{% load hijack_tags %}
+{% load i18n %}
+
+{% if request %}
+    {% with hijack_user=request|hijack_user is_hijacked=request|is_hijacked %}
+        <div class="flex items-center space-x-1">
+            <div class="{% if orientation == 'left' %}text-left{% endif %}">
+                {% block navbar_avatar %}
+                    {% if is_hijacked %}
+                        <div class="relative" style="width: 35px; height: 35px;">
+                             {% user_avatar user=hijack_user class="relative" %}
+                             {% user_avatar width=20 height=20 class="bg-white absolute bottom-0 right-0" %}
+                        </div>
+                    {% else %}
+                        {% user_avatar %}
+                    {% endif %}
+                {% endblock %}
+            </div>
+            <div class="text-{{ orientation }}">
+                {% block navbar_title %}
+                    {% if is_hijacked %}
+                        {% user_fullname user=hijack_user %}
+                    {% else %}
+                        {% user_fullname %}
+                    {% endif %}
+                {% endblock %}
+                <small class="flex justify-end {% if orientation == 'right' %}{% endif %}">
+                    {% block navbar_subtitle %}
+                        {% if is_hijacked %}
+                            <div>
+                                {% trans 'You are logged in as' %} {% user_fullname %}
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+                </small>
+            </div>
+        </div>
+    {% endwith %}
+{% endif %}
+

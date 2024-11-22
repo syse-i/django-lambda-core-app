@@ -1,0 +1,7 @@
+{% with user.get_full_name as fullname %}
+    {% if fullname %}
+        {{ fullname|truncatechars:truncate_length }}
+    {% else %}
+        {{ user.email|truncatechars:truncate_length }}
+    {% endif %}
+{% endwith %}

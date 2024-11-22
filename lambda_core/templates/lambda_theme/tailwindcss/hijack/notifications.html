@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load lambda_core_tags %}
+
+<div class="flex items-center justify-between bg-blue-200 px-6 py-4">
+    <div class="text-blue-600">
+        {% blocktrans trimmed with user=request.user.email %}
+            You are currently working on behalf of {{ user }}.
+        {% endblocktrans %}
+    </div>
+    <div class="flex items-center space-x-2 text-sm">
+        <form action="{% url 'hijack:release_hijack' %}" method="POST">
+            {% csrf_token %}
+            {% button color='default' size='small' type="submit" class="bg-white" %}
+                {% trans 'Release user' %}
+            {% endbutton %}
+        </form>
+        <form action="{% url 'hijack:disable_hijack_warning' %}?next={{ request.path }}" method="POST">
+            {% csrf_token %}
+            {% button color='default' size='small' type="submit" class="bg-white" %}
+                {% trans 'Hide Message' %}
+            {% endbutton %}
+        </form>
+    </div>
+</div>

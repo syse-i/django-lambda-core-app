@@ -1,0 +1,26 @@
+{% load static %}
+{% load lambda_core_tags %}
+
+<nav class="relative z-0 inline-flex shadow-sm">
+    {% if page_obj.has_previous %}
+        <a href="{% relative_url page=page_obj.previous_page_number %}"
+           class="relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+           aria-label="Previous">
+            <img src="{% static 'lambda_core/svg/heroicons/solid/chevron-left.svg' %}" class="h-5 w-5">
+
+        </a>
+    {% endif %}
+    {% for number in page_range %}
+        <a href="{% relative_url page=number %}"
+           class="{% if number == page_obj.number %}bg-gray-200{% else %}bg-white{% endif %} -ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+            {{ number }}
+        </a>
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <a href="{% relative_url page=page_obj.next_page_number %}"
+           class="-ml-px relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+           aria-label="Next">
+            <img src="{% static 'lambda_core/svg/heroicons/solid/chevron-right.svg' %}" class="h-5 w-5">
+        </a>
+    {% endif %}
+</nav>

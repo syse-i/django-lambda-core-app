@@ -1,0 +1,13 @@
+[Unit]
+Description={{ server_name }} gunicorn
+After=network.target
+
+[Service]
+User={{ user }}
+Group={{ group }}
+WorkingDirectory={{ working_directory }}
+EnvironmentFile={{ environment_file }}
+ExecStart={{ venv_directory }}/bin/gunicorn --bind unix:{{ web_socket }} config.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

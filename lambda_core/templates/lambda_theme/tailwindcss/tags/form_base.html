@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load lambda_core_tags %}
+
+<form method="{{ method }}" {{ attributes }}>
+    {% csrf_token %}
+    {% block form_content %}
+        {% for form in forms %}
+            {% form_fields form %}
+        {% endfor %}
+        <div class="mt-4 bg-gray-200">
+            {% button color="primary" type="submit" with label=submit_label %}
+                {{ label }}
+            {% endbutton %}
+        </div>
+    {% endblock %}
+</form>

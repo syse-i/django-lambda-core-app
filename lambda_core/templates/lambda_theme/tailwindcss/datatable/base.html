@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+{% load lambda_core_tags %}
+
+{% block styles %}
+    {{ block.super }}
+    {{ filter_set.media.css }}
+{% endblock %}
+
+{% block post_js %}
+    {{ block.super }}
+    {{ filter_set.form.media.js }}
+{% endblock %}
+
+{% block page_title %}
+    {{ page_title|upper }}
+    <div>
+        {{ object_list.paginator.count }}
+    </div>
+{% endblock %}
+
+{% block page_content %}
+    {% block page_search %}
+        {% if filter_set %}
+            <div class="flex items-center justify-between px-4 py-3 bg-gray-100">
+                <form method="GET">
+                    <div class="flex items-center space-x-2">
+                        <div>
+                            <img src="{% static 'lambda_core/svg/heroicons/solid/search.svg' %}" class="w-5 h-5">
+                        </div>
+                        <div>{{ filter_set.form.search }}</div>
+                        <div>
+                            {% button type="submit" class="bg-white text-sm" %}
+                                {% trans 'Search' %}
+                            {% endbutton %}
+                        </div>
+                        {% if filter_set.form.data %}
+                            <div class="text-sm inline-flex items-center">
+                                {{ page_total }} {% trans 'result' %}
+                                (
+                                    {% link href=".?" class="text-blue-500 hover:text-blue-700" with queryset_total=total %}
+                                        {{ queryset_total }} {% trans 'total' %}
+                                    {% endlink %}
+                                )
+                            </div>
+                        {% endif %}
+                    </div>
+                </form>
+                <div class="bg-white">
+                    {% block page_actions %}{% endblock %}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}
+    <div class="mt-4 px-4 grid grid-cols-5 gap-5">
+        <div class="col-span-full lg:col-span-4">
+            {% if object_list %}
+                {% block table_content %}
+                    <table class="table-auto w-full">
+                        {% block table_header %}
+                            <thead>
+                            <tr>
+                                {% for header in headers %}
+                                    <th class="border px-4 py-2">{{ header.text }}</th>
+                                {% endfor %}
+                            </tr>
+                            </thead>
+                        {% endblock %}
+                        {% block table_body %}
+                            <tbody>
+                            {% for row in object_list %}
+                                <tr>
+                                    {% for header in headers %}
+                                        <td class="border px-4 py-2">{{ row|attribute:header.value }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        {% endblock %}
+                    </table>
+                {% endblock %}
+                {% block table_footer %}
+                    <div class="flex justify-between items-center mt-4">
+                        <div>{% pagination_filters %}</div>
+                        <div>{% pagination %}</div>
+                    </div>
+                {% endblock %}
+            {% else %}
+                {% block page_no_content %}
+                    {% no_content %}
+                {% endblock %}
+            {% endif %}
+        </div>
+        <div class="col-span-full lg:col-span-1">
+            <div class="border py-4">
+                <h3 class="font-bold px-4">{% trans 'Filter by' %}</h3>
+                <form class="mt-3 pt-3 pl-4 pr-4 border-t" method="GET">
+                    {% block table_filters %}
+                        {% form_fields filter_set.form %}
+                        <div class="mt-2">
+                            {% button color="primary" type="submit" %}
+                                {% trans 'Search' %}
+                            {% endbutton %}
+                        </div>
+                    {% endblock %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

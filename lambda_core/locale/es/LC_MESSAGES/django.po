@@ -1,0 +1,525 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-24 02:20+0000\n"
+"PO-Revision-Date: 2021-01-23 20:22-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: lambda_core/apps.py:7
+msgid "Lambda Core"
+msgstr "Lambda Core"
+
+#: lambda_core/filters.py:10
+#: lambda_core/templates/lambda_theme/tailwindcss/datatable/base.html:35
+#: lambda_core/templates/lambda_theme/tailwindcss/datatable/base.html:101
+msgid "Search"
+msgstr "Buscar"
+
+#: lambda_core/settings/base.py:135
+msgid "Spanish"
+msgstr "Español"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:6
+msgid "Account"
+msgstr "Cuenta"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:28
+msgid "E-mail Addresses"
+msgstr "Direcciones de correo electrónico"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:30
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "Las siguientes direcciones de correo electrónico están asociadas a su cuenta:"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:48
+msgid "Verified"
+msgstr "Verificado"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:52
+msgid "Unverified"
+msgstr "Sin verificar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:57
+msgid "Primary"
+msgstr "Principal"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:68
+msgid "Make Primary"
+msgstr "Hacer Principal"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:72
+msgid "Re-send Verification"
+msgstr "Volver a enviar la verificación"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:76
+msgid "Remove"
+msgstr "Eliminar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:83
+msgid "Warning:"
+msgstr "Advertencia:"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:84
+msgid "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc."
+msgstr "Actualmente no tiene ninguna dirección de correo electrónico configurada. Realmente debe agregar una dirección de correo electrónico para que pueda recibir notificaciones, restablecer su contraseña, etc."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:92
+msgid "Add E-mail Address"
+msgstr "Agregar dirección de correo electrónico"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email.html:98
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset.html:27
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key.html:32
+#: lambda_core/templates/lambda_theme/tailwindcss/tags/formset_base.html:12
+#: lambda_core/templatetags/lambda_core_tags.py:37
+msgid "Submit"
+msgstr "Enviar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/base_message.html:25
+msgid "Hello from"
+msgstr "Hola desde"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/base_message.html:30
+msgid "Thank you for using"
+msgstr "Gracias por utilizar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/email_confirmation_message.html:9
+#, python-format
+msgid "You're receiving this e-mail because user <b>%(user_display)s</b> has given your e-mail address to register an account on %(site_domain)s."
+msgstr "Está recibiendo este correo electrónico porque el usuario <b>%(user_display)s</b> ha dado su dirección de correo electrónico para registrar una cuenta en %(site_domain)s."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/email_confirmation_message.html:15
+msgid "To confirm this is correct,"
+msgstr "Para confirmar que esto es correcto,"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/email_confirmation_message.html:17
+msgid "open this link."
+msgstr "abrir este enlace."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/email_confirmation_subject.html:4
+msgid "Please Confirm Your E-mail Address"
+msgstr "Confirme su dirección de correo electrónico"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/password_reset_key_message.html:7
+msgid "You're receiving this e-mail because you or someone else has requested a password for your user account. It can be safely ignored if you did not request a password reset."
+msgstr "Está recibiendo este correo electrónico porque usted u otra persona ha solicitado una contraseña para su cuenta de usuario. Se puede ignorar de forma segura si no ha solicitado un restablecimiento de contraseña."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/password_reset_key_message.html:14
+msgid "Click the link below to confirm this action."
+msgstr "Haga clic en el siguiente enlace para confirmar esta acción."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/password_reset_key_message.html:17
+msgid "Reset your password"
+msgstr "Restablecer contraseña"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/password_reset_key_message.html:22
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "En caso de haber olvidado, su nombre de usuario es %(username)s."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email/password_reset_key_subject.html:4
+msgid "Password Reset E-mail"
+msgstr "Restablecimiento de contraseña E-mail"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email_confirm.html:8
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email_confirm.html:18
+msgid "Confirm E-mail Address"
+msgstr "Confirmar Dirección de e-mail"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email_confirm.html:21
+#, python-format
+msgid "Please confirm that <a class=\"text-blue-500 hover:text-blue-700\" href=\"mailto:%(email)s\">%(email)s</a> is an e-mail address for user: <b>%(user_display)s</b>."
+msgstr "Confirme que <a class=\"text-blue-500 hover:text-blue-700\" href=\"mailto:%(email)s\">%(email)s</a> es una dirección de correo electrónico para el usuario: <b>%(user_display)s</b>."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email_confirm.html:29
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/email_confirm.html:35
+#, python-format
+msgid "This e-mail confirmation link expired or is invalid. Please <a href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr "Este enlace de confirmación por correo electrónico expiró o no es válido. Por <a href=\"%(email_url)s\">favor, emita una nueva solicitud de confirmación por correo electrónico</a>."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/login.html:7
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:33
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/login.html:11
+msgid "Hey there! Welcome back"
+msgstr "¡Hola! Bienvenido"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/login.html:12
+msgid "Enter your sign in credentials bellow"
+msgstr "Introduzca sus credenciales de ingreso a continuación"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/login.html:22
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/login.html:33
+#: lambda_core/templates/lambda_theme/tailwindcss/account/signup.html:6
+msgid "Signup"
+msgstr "Regístrate"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/login.html:40
+msgid "Forgot Password?"
+msgstr "¿Olvidó su contraseña?"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/logout.html:6
+#: lambda_core/templates/lambda_theme/tailwindcss/account/logout.html:20
+msgid "Sign Out"
+msgstr "Cerrar sesión"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/logout.html:10
+msgid "Confirm Action"
+msgstr "Confirmar acción"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/logout.html:11
+msgid "Are you sure you want to sign out?"
+msgstr "¿Estas seguro que te quieres desconectar?"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/logout.html:26
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_change.html:6
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_change.html:11
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key.html:6
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key.html:15
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key_done.html:7
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key_done.html:16
+msgid "Change Password"
+msgstr "Cambiar Contraseña"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset.html:7
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset.html:15
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_done.html:7
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_done.html:16
+msgid "Password Reset"
+msgstr "Restablecer contraseña"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset.html:17
+msgid "Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it."
+msgstr "¿Has olvidado tu contraseña? Introduzca su dirección de correo electrónico a continuación y le enviaremos un correo electrónico que le permitirá restablecerla."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset.html:32
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr "Póngase en contacto con nosotros si tiene algún problema para restablecer su contraseña."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_done.html:21
+msgid "We have sent you an e-mail. Please contact us if you do not receive it within a few minutes."
+msgstr "Le hemos enviado un e-mail. Póngase en contacto con nosotros si no lo recibe en unos minutos."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key.html:13
+msgid "Bad Token"
+msgstr "Mal token"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key.html:21
+#, python-format
+msgid "The password reset link was invalid, possibly because it has already been used. Please request a <a href=\"%(password_reset_url)s\">new password reset</a>."
+msgstr "El enlace de restablecimiento de contraseña no era válido, posiblemente porque ya se ha utilizado. Solicite un <a href=\"%(password_reset_url)s\">nuevo restablecimiento</a>de contraseña ."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key.html:36
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key_done.html:18
+msgid "Your password is now changed."
+msgstr "Su contraseña ha cambiado."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/password_reset_from_key_done.html:22
+msgid "Continue"
+msgstr "Continuar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/profile.html:6
+msgid "Update Profile"
+msgstr "Actualizar Perfil"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/profile.html:28
+#: lambda_core/templates/lambda_theme/tailwindcss/settings/base.html:32
+msgid "Save"
+msgstr "Guardar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/signup.html:14
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/signup.html:15
+msgid "Then please"
+msgstr "Entonces, por favor"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/signup.html:17
+msgid "sign in"
+msgstr "registrarse"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/signup.html:29
+msgid "Sign Up"
+msgstr "Regístrate"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/snippets/already_logged_in.html:9
+msgid "Note"
+msgstr "Nota"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/snippets/already_logged_in.html:10
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "ya ha iniciado sesión como %(user_display)s."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/snippets/go_back.html:10
+msgid "Go back"
+msgstr "Volver"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/verification_sent.html:6
+#: lambda_core/templates/lambda_theme/tailwindcss/account/verification_sent.html:15
+msgid "Verify Your E-mail Address"
+msgstr "Verifique su dirección de correo electrónico"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/account/verification_sent.html:20
+msgid "We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes."
+msgstr "Le hemos enviado un correo electrónico para su verificación. Siga el enlace proporcionado para finalizar el proceso de registro. Póngase en contacto con nosotros si no lo recibe en unos minutos."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/datatable/base.html:40
+msgid "result"
+msgstr "resultado"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/datatable/base.html:43
+msgid "total"
+msgstr "total"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/datatable/base.html:95
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/notifications.html:6
+#, python-format
+msgid "You are currently working on behalf of %(user)s."
+msgstr "Actualmente está trabajando en nombre de %(user)s."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/notifications.html:14
+msgid "Release user"
+msgstr "Liberar usuario"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/notifications.html:20
+msgid "Hide Message"
+msgstr "Ocultar mensaje"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:7
+msgid "Users"
+msgstr "Usuarios"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:14
+#: lambda_core/views.py:94
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:15
+#: lambda_core/views.py:99
+msgid "First Name"
+msgstr "Nombre"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:16
+#: lambda_core/views.py:104
+msgid "Last Name"
+msgstr "Apellidos"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:17
+#: lambda_core/views.py:109
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/hijack/user_list.html:18
+msgid "Actions"
+msgstr "Acciones"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/notifications/list.html:7
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/notifications/list.html:16
+msgid "Mark all as read"
+msgstr "Marcar todos como leídos"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/notifications/notice.html:14
+#, python-format
+msgid "%(timesince)s ago"
+msgstr "%(timesince)s ago"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/notifications/notice.html:39
+msgid "Mark as read"
+msgstr "Marcar como leído"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/settings/base.html:6
+msgid "Settings"
+msgstr "Configuraciones"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/settings/base.html:10
+msgid "General"
+msgstr "General"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/settings/base.html:16
+msgid "Language"
+msgstr "Idioma"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/tags/no_content.html:6
+msgid "Nothing to show right now..."
+msgstr "Nada que mostrar en este momento..."
+
+#: lambda_core/templates/lambda_theme/tailwindcss/tags/pagination_filters.html:9
+msgid "Show"
+msgstr "Mostrar"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/tags/pagination_filters.html:20
+msgid "registers"
+msgstr "registros"
+
+#: lambda_core/templates/lambda_theme/tailwindcss/tags/user_profile.html:32
+msgid "You are logged in as"
+msgstr "Has iniciado sesión como"
+
+#, fuzzy, python-format
+#~ msgid ""
+#~ "\n"
+#~ "                                    <p>Hello from %(site_name)s!</p>\n"
+#~ "                                "
+#~ msgstr ""
+#~ "\n"
+#~ "                                    <p>Hola desde %(site_name)s!</p>\n"
+#~ "                                "
+
+#, python-format
+#~ msgid "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+#~ msgstr "¿Ya tienes una cuenta? A continuación, <a href=\"%(login_url)s\">inicie sesión</a>."
+
+#~ msgid "Do you really want to remove the selected e-mail address?"
+#~ msgstr "¿Realmente desea eliminar la dirección de correo electrónico seleccionada?"
+
+#~ msgid "Save Changes"
+#~ msgstr "Guardar cambios"
+
+#~ msgid "Clear"
+#~ msgstr "Limpiar"
+
+#~ msgid "Apply"
+#~ msgstr "Aplicar"
+
+#~ msgid "Filters"
+#~ msgstr "Filtros"
+
+#~ msgid "There is nothing to show right now"
+#~ msgstr "No hay nada que mostrar en este momento"
+
+#~ msgid "Accordion"
+#~ msgstr "Acordeón"
+
+#~ msgid "Alert"
+#~ msgstr "Alerta"
+
+#~ msgid "Close Button"
+#~ msgstr "Botón de desplazamiento a la parte superior"
+
+#~ msgid "Style modifiers"
+#~ msgstr "Modificadores de estilo"
+
+#~ msgid "Badge"
+#~ msgstr "Insignia"
+
+#~ msgid "Breadcrumb"
+#~ msgstr "Migas de pan"
+
+#~ msgid "Button"
+#~ msgstr "Botón"
+
+#~ msgid "Width modifiers"
+#~ msgstr "Modificadores de anchura"
+
+#~ msgid "Button Group"
+#~ msgstr "Grupo de botones"
+
+#~ msgid "Button with dropdowns"
+#~ msgstr "Botón con menús desplegables"
+
+#~ msgid "Button group with dropdowns"
+#~ msgstr "Grupo de botones con listas desplegables"
+
+#~ msgid "Cards"
+#~ msgstr "Tarjetas"
+
+#~ msgid "Drop"
+#~ msgstr "Soltar"
+
+#~ msgid "Dropdown"
+#~ msgstr "Desplegable"
+
+#~ msgid "Forms"
+#~ msgstr "Formularios"
+
+#~ msgid "Icons"
+#~ msgstr "Iconos"
+
+#~ msgid "Icon Nav"
+#~ msgstr "Icon Nav"
+
+#~ msgid "Label"
+#~ msgstr "Etiqueta"
+
+#~ msgid "Modals"
+#~ msgstr "Modals"
+
+#~ msgid "Nav"
+#~ msgstr "Nav"
+
+#~ msgid "Guide"
+#~ msgstr "Guía"
+
+#~ msgid "Roadmap"
+#~ msgstr "Hoja de ruta"
+
+#~ msgid "Download"
+#~ msgstr "Descargar"
+
+#~ msgid "A consistent and responsive <b>Django UI library</b>, based on the front-end framework <b>UIkit</b>"
+#~ msgstr "Una biblioteca de interfaz de usuario de <b>Django</b>coherente y responsiva, basada en el marco front-end <b>UIkit</b>"
+
+#~ msgid "Get started"
+#~ msgstr "Comenzar"
+
+#~ msgid "Version"
+#~ msgstr "Versión"
+
+#~ msgid "Home"
+#~ msgstr "Inicio"
+
+#~ msgid "Sign out"
+#~ msgstr "Cerrar sesión"
+
+#~ msgid "Workspace"
+#~ msgstr "Espacio de trabajo"
+
+#~ msgid "Navigation Menu"
+#~ msgstr "Navegación"
+
+#~ msgid "Profile"
+#~ msgstr "Perfil"
+
+#~ msgid "Login as"
+#~ msgstr "Iniciar sesión como"
+
+#~ msgid "Admin Panel"
+#~ msgstr "Panel de Administración"
+
+#~ msgid "English"
+#~ msgstr "Inglés"
+
+#~ msgid "Remember Me"
+#~ msgstr "Recuérdame"
