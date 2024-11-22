@@ -18,10 +18,10 @@ django-extensions==3.1.0
 django-filter==2.4.0
 django-guardian==2.3.0
 django-hijack==2.1.10
-django-lambda-theme-tailwindcss @ git+https://bitbucket.org/lambda_software/django-lambda-theme-tailwindcss.git@e638a902f7227a7fc96a5d73097ab2e561fccdb2
-django-lambda-url @ git+https://bitbucket.org/lambda_software/django-lambda-url-app.git@384cf0b173258081ce1b892747d3668b00d930a1
 django_lambda_config @ git+https://github.com/syse-i/django-lambda-config.git@2339a474df8f01a4e1561126c0ff7f3e35246141
 django_lambda_theme @ git+https://github.com/syse-i/django-lambda-theme.git@84d390558d626ba5f81664323e35da0e59cdbcaf
+django-lambda-theme-tailwindcss @ git+https://bitbucket.org/lambda_software/django-lambda-theme-tailwindcss.git@e638a902f7227a7fc96a5d73097ab2e561fccdb2
+django-lambda-url @ git+https://bitbucket.org/lambda_software/django-lambda-url-app.git@384cf0b173258081ce1b892747d3668b00d930a1
 django-maintenance-mode==0.15.1
 django-model-utils==4.1.1
 django-notifications-hq==1.6.0

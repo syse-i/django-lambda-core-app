@@ -16,10 +16,14 @@ setup(
     packages=['lambda_core'],
     install_requires=[
         # Our dependencies
-        'django-lambda-config',
-        'django-lambda-theme',
-        'django-lambda-theme-tailwindcss',
-        'django-lambda-url',
+        'django_lambda_config @ git+https://github.com/syse-i/django-lambda-config.git@2339a474df8f01a4e1561126c0ff7f3e35246141',
+        'django_lambda_theme @ git+https://github.com/syse-i/django-lambda-theme.git@84d390558d626ba5f81664323e35da0e59cdbcaf',
+        'django-lambda-theme-tailwindcss @ git+https://bitbucket.org/lambda_software/django-lambda-theme-tailwindcss.git@e638a902f7227a7fc96a5d73097ab2e561fccdb2,
+        'django-lambda-url @ git+https://bitbucket.org/lambda_software/django-lambda-url-app.git@384cf0b173258081ce1b892747d3668b00d930a1,
+        #'django-lambda-config',
+        #'django-lambda-theme',
+        #'django-lambda-theme-tailwindcss',
+        #'django-lambda-url',
         # Third party dependencies
         'boto3',
         'django-allauth',
