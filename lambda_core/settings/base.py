@@ -16,12 +16,11 @@ from django.utils.translation import ugettext_lazy as _
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-from lambda_config.settings.base import Settings as BaseSettings, BaseDir
+from lambda_config.settings.base import Settings as BaseSettings
 
 
 __all__ = [
     'Settings',
-    'BaseDir',
 ]
 
 
